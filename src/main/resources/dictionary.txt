@@ -1,0 +1,10 @@
+test
+password
+admin
+123456
+hello
+world
+qwerty
+azerty
+root
+user
