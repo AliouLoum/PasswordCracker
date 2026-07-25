@@ -1,19 +1,44 @@
 package com.passwordcracker.strategy;
 
 import com.passwordcracker.core.HashCracker;
+import com.passwordcracker.core.MD5Utils;
 
-/**
- * Stub pour la stratégie de cassage par dictionnaire (Personne 2).
- */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
 public class DictionaryHashCracker implements HashCracker {
 
+    private static final String DICTIONARY_PATH = "dictionary.txt";
+
     @Override
-    public String casser(String hashCible) {
-        // TODO: Implémenter la logique de recherche dans le dictionnaire pour la Personne 2.
-        // 1. Charger dictionary.txt
-        // 2. Parcourir chaque mot
-        // 3. Hasher avec MD5Utils.calculerMd5()
-        // 4. Comparer avec hashCible
-        throw new UnsupportedOperationException("Non implémenté (Personne 2)");
+    public String crack(String hash) {
+        if (hash == null) {
+            return null;
+        }
+
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(DICTIONARY_PATH);
+        if (inputStream == null) {
+            return null;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            String mot;
+            while ((mot = reader.readLine()) != null) {
+                if (mot.isEmpty()) {
+                    continue;
+                }
+                String hashMot = MD5Utils.calculerMd5(mot);
+                if (hashMot.equals(hash)) {
+                    return mot;
+                }
+            }
+        } catch (IOException e) {
+            return null;
+        }
+
+        return null;
     }
 }

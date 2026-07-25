@@ -8,7 +8,7 @@ import com.passwordcracker.core.HashCracker;
 public class BruteForceHashCracker implements HashCracker {
 
     @Override
-    public String casser(String hashCible) {
+    public String crack(String hash) {
         // TODO: Implémenter la logique de force brute pour la Personne 3.
         // 1. Générer toutes les combinaisons de a à z (1 à 4 caractères).
         // 2. Pour chaque combinaison, hasher avec MD5Utils.calculerMd5().
