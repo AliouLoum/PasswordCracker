@@ -25,35 +25,7 @@ Chaque stratégie implémente l'interface commune `HashCracker`, ce qui permet a
 
 ## 4. Diagramme UML
 
-```mermaid
-classDiagram
-    class HashCracker {
-        <<interface>>
-        +crack(hash: String) String
-    }
-
-    class DictionaryHashCracker {
-        +crack(hash: String) String
-    }
-
-    class BruteForceHashCracker {
-        +crack(hash: String) String
-        +getAttempts() long
-    }
-
-    class HashCrackerFactory {
-        +create(method: String)$ HashCracker
-    }
-
-    class Main {
-        +main(args: String[])$ void
-    }
-
-    HashCracker <|.. DictionaryHashCracker
-    HashCracker <|.. BruteForceHashCracker
-    HashCrackerFactory ..> HashCracker : crée
-    Main ..> HashCrackerFactory : utilise
-```
+![alt text](image.png)
 
 ## 5. Usage du patron Simple Factory
 
