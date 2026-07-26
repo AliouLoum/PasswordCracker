@@ -98,7 +98,7 @@ Le hash `5d41402abc4b2a76b9719d911017c592` est le MD5 de `"hello"` (5 lettres, h
 
 Build Maven réussi, 20 tests passés sans échec. Les deux stratégies (dictionnaire et force brute) fonctionnent correctement, avec gestion des cas de succès et d'échec. La fabrique instancie la bonne stratégie selon le paramètre `-m` et lève une exception claire pour les méthodes invalides.
 
-Vidéo de démonstration : *[lien à insérer, max 10 minutes]*
+Vidéo de démonstration : [https://youtu.be/W_7nIivGjw0](https://youtu.be/W_7nIivGjw0)
 
 ## 7. Difficultés rencontrées
 
